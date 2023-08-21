@@ -431,32 +431,32 @@ footer {
 
 /*SMALL PHONES */
 @media (max-width: 480px) {
-  .nav__link:not(:last-child) {
+  .textLinks:not(:last-child) {
     display: none;
   }
 
-  .project__description {
+  .project-description {
     padding: 0;
     width: 100%;
     left: 0;
   }
 
-  .project__description--para {
+  .project-description--para {
     display: none;
   }
 
-  .project__description--links {
+  .project-description--links {
     display: flex;
     justify-content: center;
   }
 
-  .project__description--title {
+  .project-description--title {
     font-size: 32px;
     line-height: 1;
     text-align: center;
   }
 
-  .project__description--sub-title {
+  .project-description--sub-title {
     text-align: center;
     margin: 12px 0;
   }
