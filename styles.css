@@ -7,88 +7,100 @@
   font-family: "Roboto", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 nav {
   height: 100px;
   width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 12px;
 }
 
-.navBar {
+.link__hover-effect:after {
+  /*Für die Unterstriche */
+  content: "";
+  position: absolute;
+  height: 3px;
+  background-color: black;
+  width: 0;
+  bottom: -3px;
+  right: 0;
+  transition: all 300ms ease;
+}
+
+.link__hover-effect--white:after {
+  background-color: #fff;
+}
+.link__hover-effect--black:after {
+  background-color: #000;
+}
+
+.link__hover-effect:hover:after {
+  /*Für die Unterstrich-Animation*/
+  width: 100%;
+  left: 0;
+}
+
+.nav__link--list {
   display: flex;
-}
-
-li {
   list-style-type: none;
-  padding-right: 16px;
 }
 
-.backgroundColor {
-  background: rgb(74, 178, 255);
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(74, 178, 255, 1) 0%,
-    rgba(205, 107, 255, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(74, 178, 255, 1) 0%,
-    rgba(205, 107, 255, 1) 100%
-  );
-  background: linear-gradient(
-    90deg,
-    rgba(74, 178, 255, 1) 0%,
-    rgba(205, 107, 255, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4ab2ff",endColorstr="#cd6bff",GradientType=1);
+.nav__link--anchor {
+  margin: 0 12px;
+  color: #242424;
+  font-weight: 700;
+  text-decoration: none;
 }
 
-.myName {
-  padding-left: 16px;
+.nav__link--anchor-primary {
+  background-color: #379dfc;
+  padding: 8px 20px;
+  border-radius: 50px;
+  color: white;
+  transition: all 300ms ease;
 }
 
-.textLinks {
+.nav__link--anchor-primary:hover {
+  background-color: black;
+}
+
+.personal__logo {
+  font-size: 24px;
+  color: #379dfc;
+  margin: 0 12px;
+  font-weight: bold;
+}
+
+.nav__link {
   position: relative;
   color: #ffffff;
   text-decoration: none;
 }
 
-a {
-  font-size: 20px;
+.flex {
+  display: flex;
 }
 
-.text-color {
-  color: #93a5ff;
+.flex-1 {
+  flex: 1;
 }
 
-.textLinks::after {
-  content: "";
-  position: absolute;
+.container {
+  padding: 50px 0;
+}
+
+.row {
   width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #93a5ff;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-  transform: scale(0);
-}
-
-.textLinks:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-.a__contact {
-  color: white;
-  text-decoration: none;
-}
-
-.a__secondContact {
-  background-color: #93a5ff;
-  border-radius: 100px;
-  padding: 10px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 12px;
 }
 
 .aboutMe--title {
@@ -411,7 +423,7 @@ footer {
   h1 {
     font-size: 28px;
   }
-  .about-me__info--para {
+  .about-me-info--para {
     font-size: 18px;
   }
 
@@ -419,45 +431,74 @@ footer {
     width: calc(100% / 2);
   }
 
-  .project__description--para {
+  .project-description--para {
     font-size: 16px;
   }
 
-  .project__description {
+  .project-description {
     left: 25px;
     padding-right: 30px;
   }
 }
 
 /*SMALL PHONES */
-@media (max-width: 480px) {
-  .textLinks:not(:last-child) {
-    display: none;
+/* Small phones, tablets, large smartphones */
+@media  (max-width: 768px){
+  nav {
+      height: 68px;
   }
 
-  .project-description {
-    padding: 0;
-    width: 100%;
-    left: 0;
+  h1 {
+      font-size: 28px;
+  }
+  .about-me__info--para{
+      font-size: 18px;
+  }
+  
+  .language{
+      width: calc(100% / 2);
   }
 
-  .project-description--para {
-    display: none;
+  .project__description--para{
+      font-size: 16px;
   }
 
-  .project-description--links {
-    display: flex;
-    justify-content: center;
+  .project__description{
+      left: 25px;
+      padding-right: 30px;
+  }
+}
+
+
+/*SMALL PHONES */
+@media (max-width: 480px){
+  .nav__link:not(:last-child){
+      display: none;
   }
 
-  .project-description--title {
-    font-size: 32px;
-    line-height: 1;
-    text-align: center;
+  .project__description{
+      padding: 0;
+      width: 100%;
+      left: 0;
   }
 
-  .project-description--sub-title {
-    text-align: center;
-    margin: 12px 0;
+  .project__description--para{
+      display: none;
+  }
+
+  .project__description--links{
+      display: flex;
+      justify-content: center;
+  }
+
+  .project__description--title{
+      font-size: 32px;
+      line-height: 1;
+      text-align: center;
+  }
+
+  .project__description--sub-title{
+      text-align: center;
+      margin: 12px 0;
   }
 }
